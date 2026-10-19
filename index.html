@@ -1,381 +1,391 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Organización Patella</title>
+<meta name="description" content="Productores asesores de seguros. Te asesoramos antes y te acompañamos cuando pasa algo: equipo especializado en gestión de siniestros, sector de legales y atención siempre personalizada.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Albert+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky slim header; asymmetric hero with a "case file" card; alternating bands; dark claims band as the centerpiece */
+:root{
+  --ink:#24151F; --plum:#3A0E34; --mag:#C00063; --rose:#FFDCEC;
+  --bg:#FFFBFD; --surface:#FFFFFF; --soft:#F6EEF3; --line:#EADFE6; --muted:#6D5F6A;
+  --title:#3A0E34; --onDark:#FFFFFF; --onDarkMuted:#F2CFE1;
+  --display:"Sora",ui-sans-serif,system-ui,sans-serif; --body:"Albert Sans",ui-sans-serif,system-ui,sans-serif;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#F5EAF1; --bg:#160A14; --surface:#1F101C; --soft:#2A1626; --line:#3B2236; --muted:#BCA8B7; --title:#FFC9E2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#F5EAF1; --bg:#160A14; --surface:#1F101C; --soft:#2A1626; --line:#3B2236; --muted:#BCA8B7; --title:#FFC9E2; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);color:var(--title);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4.2vw,42px);line-height:1.1}
+h3{font-size:19px;line-height:1.25}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag);display:block;margin-bottom:12px}
+.lead{font-size:18.5px;color:var(--muted);max-width:60ch;margin:14px 0 0}
+section{padding-block:clamp(56px,8vw,96px)}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:700 16px var(--body);border-radius:999px;padding:14px 22px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--mag);color:#fff;box-shadow:0 8px 24px -10px rgba(192,0,99,.6)}
+.btn.ghost{border:1.5px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.light{background:#fff;color:var(--plum)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--mag);outline-offset:3px}
 
-    <title>Organización Patella & Asoc</title>
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .mk{width:38px;height:38px;border-radius:11px;background:linear-gradient(140deg,var(--plum),var(--mag));color:#fff;display:grid;place-items:center;font:800 18px var(--display)}
+.logo b{font-family:var(--display);font-size:17px;color:var(--title);line-height:1.1;display:block}
+.logo small{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+nav.main{display:flex;gap:22px;align-items:center}
+nav.main a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
+nav.main a:hover{color:var(--mag)}
+nav.main .btn{padding:10px 18px;font-size:14.5px;color:#fff}
+@media(max-width:880px){nav.main a:not(.btn){display:none}}
 
-    <link rel="stylesheet" href="style.css" />
+/* hero */
+.hero{padding-block:clamp(44px,7vw,84px) clamp(56px,7vw,90px)}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font-size:13.5px;font-weight:600;color:var(--title)}
+.badge i{width:22px;height:22px;border-radius:50%;background:var(--mag);display:grid;place-items:center;color:#fff;font-style:normal;font-size:12px}
+.hero h1{font-size:clamp(38px,6.4vw,68px);line-height:1.02;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--mag)}
+.hero .lead{font-size:19.5px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;font-size:14px;color:var(--muted)}
+.trust span::before{content:"✓";color:var(--mag);font-weight:800;margin-right:7px}
+/* case file card */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 30px 60px -30px rgba(58,14,52,.35);position:relative;min-width:0}
+.case .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.case .head b{font-family:var(--display);font-size:15px;color:var(--title)}
+.case .head span{font-size:12px;font-weight:700;color:#1E7A46;background:#DCF2E5;border-radius:999px;padding:4px 10px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding-bottom:16px;position:relative}
+.tl li::before{content:"";position:absolute;left:10px;top:22px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .dot{width:22px;height:22px;border-radius:50%;background:var(--mag);border:4px solid var(--rose);box-sizing:border-box;margin-top:2px}
+.tl li.pending .dot{background:var(--surface);border-color:var(--line)}
+.tl b{display:block;font-size:15px}
+.tl small{color:var(--muted);font-size:13.5px}
+.case .who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.case .who .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(140deg,var(--plum),var(--mag));color:#fff;display:grid;place-items:center;font:700 15px var(--display);flex:none}
+.case .who p{margin:0;font-size:14px;color:var(--muted)}
+.case .who p b{color:var(--ink)}
 
-    <link rel="icon" href="Data/Logo.jpeg" type="image/png" />
+/* pillars strip */
+.strip{background:var(--plum);color:#fff;padding-block:22px}
+.strip .wrap{display:grid;gap:12px 28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.strip div{display:flex;gap:10px;align-items:center;font-weight:600;font-size:15px}
+.strip div i{font-style:normal;width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex:none}
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+/* products */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin-top:36px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:21px;margin-bottom:14px}
+.card p{margin:8px 0 0;color:var(--muted);font-size:15px}
+.card .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--mag);background:var(--rose);border-radius:999px;padding:3px 10px}
+:root[data-theme="dark"] .card .tag{background:#3A1430}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card .tag{background:#3A1430}}
 
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+/* claims band */
+.claims{background:linear-gradient(150deg,#2A0A26 0%,var(--plum) 45%,#7A0750 100%);color:#fff}
+.claims h2,.claims h3{color:#fff}
+.claims .lead{color:var(--onDarkMuted)}
+.claims .eyebrow{color:#FF8CC2}
+.claims .cols{display:grid;gap:18px;margin-top:40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.cl{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--r);padding:24px}
+.cl p{color:var(--onDarkMuted);margin:8px 0 0;font-size:15.5px}
+.cl .big{font-family:var(--display);font-size:38px;font-weight:800;color:#fff;line-height:1}
+.human{margin-top:22px;background:#fff;color:var(--plum);border-radius:22px;padding:24px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.human b{font-family:var(--display);font-size:clamp(20px,3vw,26px);color:var(--mag);display:block;line-height:1.2}
+.human p{margin:4px 0 0;font-size:15.5px;max-width:70ch}
+.human .em{font-size:38px}
+.assist{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14.5px;color:var(--onDarkMuted)}
+.assist b{color:#fff}
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
+/* split feature */
+.split{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
+.panel{background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:26px;min-width:0}
+.check{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.check li{display:grid;grid-template-columns:26px 1fr;gap:10px}
+.check li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--mag);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.gift{border:2px dashed var(--mag);border-radius:18px;padding:18px 20px;margin-top:18px;background:var(--surface)}
+.gift small{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mag)}
+.gift b{display:block;font-family:var(--display);font-size:18px;color:var(--title);margin-top:4px}
+.gift p{margin:6px 0 0;color:var(--muted);font-size:15px}
 
-  <body>
-    <!-- HERO -->
+/* test teaser */
+.quiz{display:grid;gap:12px}
+.qrow{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.qrow span{font-weight:600;font-size:15px}
+.qrow em{font-style:normal;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.ok{background:#DCF2E5;color:#1E7A46}.warn{background:#FFF0D2;color:#9A6200}.bad{background:#FFE0E3;color:#B00020}
 
-    <section class="hero">
-      <div class="hero-overlay"></div>
+/* steps */
+.steps{display:grid;gap:16px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));counter-reset:s}
+.step{border-top:3px solid var(--mag);padding-top:16px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-weight:800;font-size:15px;color:var(--mag);display:block;margin-bottom:6px}
+.step p{margin:6px 0 0;color:var(--muted);font-size:15px}
 
-      <div class="hero-logo">
-        <img src="Data/Logo.png" alt="Organización Patella & Asoc" />
+/* documentation */
+.docs{background:var(--soft)}
+.docs .grid{margin-top:28px}
+
+/* institutions */
+.inst{background:var(--soft)}
+.case-study{display:grid;gap:24px;margin-top:36px;align-items:stretch}
+@media(min-width:900px){.case-study{grid-template-columns:1.2fr 1fr}}
+.cs{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;min-width:0}
+.cs .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.cs .nums div{background:var(--soft);border-radius:14px;padding:14px;text-align:center}
+.cs .nums b{display:block;font-family:var(--display);font-size:26px;color:var(--mag)}
+.cs .nums span{font-size:12.5px;color:var(--muted)}
+.cs ul{margin:16px 0 0;padding-left:20px;color:var(--muted)}
+.cs li{margin-bottom:6px}
+
+/* contact */
+.contact .wrap{display:grid;gap:28px}
+@media(min-width:900px){.contact .wrap{grid-template-columns:1fr 1fr}}
+.ccard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;display:grid;gap:16px;min-width:0}
+.ccard .row{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.ccard .row i{font-style:normal;font-size:18px}
+.ccard .row b{display:block}
+.ccard .row span{color:var(--muted);font-size:15px;overflow-wrap:anywhere}
+.ccard iframe{width:100%;height:260px;border:0;border-radius:16px}
+.final{background:linear-gradient(140deg,var(--plum),var(--mag));color:#fff;border-radius:28px;padding:clamp(26px,4vw,40px);display:grid;gap:14px;align-content:center}
+.final h2{color:#fff}
+.final p{color:var(--onDarkMuted);margin:0;font-size:17px}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px;font-size:13px;color:var(--muted)}
+footer .wrap{display:grid;gap:14px}
+footer .ssn{display:flex;flex-wrap:wrap;gap:6px 24px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+footer .ssn b{color:var(--ink)}
+
+/* floating whatsapp */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:25;background:#1FAF5A;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 18px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);display:flex;gap:8px;align-items:center;font-size:15px}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Organización Patella, inicio"><span class="mk">P</span><span><b>Organización Patella</b><small>Productores Asesores de Seguros</small></span></a>
+    <nav class="main" aria-label="Principal">
+      <a href="#seguros">Seguros</a>
+      <a href="#siniestros">Siniestros</a>
+      <a href="#revision">Revisión sin cargo</a>
+      <a href="#documentacion">Documentación</a>
+      <a href="#instituciones">Instituciones</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn primary" href="https://wa.me/5491136052538?text=Hola%2C%20quiero%20hablar%20con%20un%20asesor" target="_blank" rel="noopener">Hablar con un asesor</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge"><i>★</i>Organizador del Grupo Sancor Seguros</span>
+      <h1>Seguros con personas, <em>no con bots.</em></h1>
+      <p class="lead">Te asesoramos antes de contratar y te acompañamos cuando pasa algo. Con un equipo especializado en gestión de siniestros y nuestro sector de legales, de principio a fin.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://wa.me/5491136052538?text=Hola%2C%20quiero%20recibir%20asesoramiento%20sobre%20seguros" target="_blank" rel="noopener">Hablar con un asesor</a>
+        <a class="btn ghost" href="https://claude.ai/artifact/CwsWnpYPxShuwSZPRr4coL" target="_blank" rel="noopener">Hacé el test de protección</a>
       </div>
-      <div class="hero-content" data-aos="fade-up">
-        <h1>Organización Patella & Asociados</h1>
+      <div class="trust"><span>Atención personalizada</span><span>Revisión de póliza sin cargo</span><span>Te acompañamos aunque tu seguro sea de otra compañía</span><span>Gestión y seguimiento de pólizas</span><span>Acompañamiento a clientes y productores</span></div>
+    </div>
 
-        <p>
-          Broker y consultora del sector asegurador especializada en
-          asesoramiento profesional, gestión administrativa de pólizas y
-          análisis de riesgos para empresas, profesionales y particulares.
-        </p>
+    <aside class="case" aria-label="Ejemplo de seguimiento de un siniestro">
+      <div class="head"><b>Seguimiento de tu siniestro</b><span>En gestión</span></div>
+      <ol class="tl">
+        <li><span class="dot"></span><div><b>Nos avisás</b><small>Por WhatsApp o teléfono. Te atiende una persona.</small></div></li>
+        <li><span class="dot"></span><div><b>Contacto dentro de las 24 h hábiles</b><small>Te decimos qué necesitamos y cómo seguir.</small></div></li>
+        <li><span class="dot"></span><div><b>Armamos la presentación</b><small>Recabamos la información y documentación del reclamo.</small></div></li>
+        <li class="pending"><span class="dot"></span><div><b>Novedades cada semana</b><small>Sin que tengas que preguntar, hasta el cierre.</small></div></li>
+      </ol>
+      <div class="who"><span class="av">OP</span><p><b>Siempre alguien con nombre y apellido</b><br>que conoce tu caso.</p></div>
+    </aside>
+  </div>
+</section>
 
-        <a
-          rel="noopener noreferrer"
-          target="_blank"
-          href="//wa.me/5491136052538?text=Hola,%20quiero%20recibir%20asesoramiento%20sobre%20seguros"
-          class="btn-primary"
-        >
-          Contactarse
-        </a>
+<div class="strip" role="list">
+  <div class="wrap">
+    <div role="listitem"><i>🤝</i>Sin asistentes virtuales</div>
+    <div role="listitem"><i>🛠️</i>Equipo especializado en siniestros</div>
+    <div role="listitem"><i>⚖️</i>Sector de legales</div>
+    <div role="listitem"><i>🚗</i>Talleres colaboradores</div>
+  </div>
+</div>
+
+<section id="seguros">
+  <div class="wrap">
+    <span class="eyebrow">Qué aseguramos</span>
+    <h2>Protección para tu familia, tu trabajo y tu negocio</h2>
+    <p class="lead">Analizamos tu situación y te recomendamos la cobertura que corresponde. Ni más, ni menos.</p>
+    <div class="grid">
+      <article class="card"><div class="ic">🚗</div><h3>Auto y moto</h3><p>Coberturas a medida, granizo, asistencia en ruta y acompañamiento cuando chocás.</p></article>
+      <article class="card"><div class="ic">🏠</div><h3>Hogar</h3><p>Incendio, robo, cristales y responsabilidad civil, con la suma asegurada correcta.</p><span class="tag">Consultá descuentos</span></article>
+      <article class="card"><div class="ic">🩹</div><h3>Accidentes personales</h3><p>Un respaldo económico para vos y tu familia ante una lesión o incapacidad, las 24 horas.</p></article>
+      <article class="card"><div class="ic">🏪</div><h3>Comercios y pymes</h3><p>Integral de comercio, responsabilidad civil, ART y vida obligatorio para tu personal.</p></article>
+      <article class="card"><div class="ic">⚖️</div><h3>Profesionales</h3><p>Responsabilidad civil profesional y cauciones para abogados, contadores y profesionales de la salud.</p></article>
+      <article class="card"><div class="ic">🔑</div><h3>Caución de alquiler</h3><p>Alquilá sin depender de un garante propietario.</p></article>
+      <article class="card"><div class="ic">💙</div><h3>Salud</h3><p>Planes de Prevención Salud, del Grupo Sancor Seguros, como cobertura principal o complemento.</p></article>
+      <article class="card"><div class="ic">🚚</div><h3>Flotas</h3><p>Administración de flotas para empresas, con gestión de siniestros centralizada.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="claims" id="siniestros">
+  <div class="wrap">
+    <span class="eyebrow">Nuestra diferencia</span>
+    <h2>Cuando pasa algo, no estás solo</h2>
+    <p class="lead">En nuestra organización contamos con un equipo especializado en gestión de siniestros, y te acompañamos en los reclamos con nuestro sector de legales.</p>
+    <div style="display:inline-flex;align-items:center;gap:12px;margin-top:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;flex-wrap:wrap"><span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF8CC2">En alianza con</span><a href="https://sinergiaconsultoria.com.ar" target="_blank" rel="noopener" style="font-family:var(--display);font-weight:700;font-size:18px;color:#fff;text-decoration:none">Sinergia Consultoría</a><span style="font-size:14px;color:var(--onDarkMuted)">Gestión especializada de siniestros y beneficios exclusivos en el mercado automotor</span></div>
+    <div class="cols">
+      <div class="cl"><div class="big">24 h</div><h3 style="margin-top:10px">Respuesta rápida</h3><p>Te contactamos dentro de las 24 horas hábiles de avisarnos un siniestro.</p></div>
+      <div class="cl"><h3>Gestión de principio a fin</h3><p>Un equipo especializado recaba la información necesaria para la presentación de tu reclamo y lo sigue hasta el final, con novedades cada semana.</p></div>
+      <div class="cl"><h3>Sector de legales</h3><p>Si no tuviste la culpa, reclamamos al seguro del otro. Honorarios 100% bonificados en instancia extrajudicial.</p></div>
+      <div class="cl"><h3>Talleres colaboradores</h3><p>Turno coordinado y seguimiento de tu reparación, para que no pierdas tiempo.</p></div>
+    </div>
+    <div class="human">
+      <span class="em" aria-hidden="true">🤝</span>
+      <div><b>Sin asistentes virtuales. Siempre una persona.</b><p>No hay bots, contestadores ni menús de opciones. Desde la primera consulta hasta el cierre de tu caso, te atiende alguien con nombre y apellido que conoce tu situación.</p></div>
+    </div>
+    <div class="assist"><span>Asistencia al vehículo y las personas · Sancor Seguros · 24 h:</span><b>0800 333 2766</b><b>WhatsApp +54 3493 520 650</b></div>
+  </div>
+</section>
+
+<section id="revision">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Revisión de póliza sin cargo</span>
+      <h2>¿Sabés cuánto cobrarías hoy si tenés un siniestro?</h2>
+      <p class="lead">Según cómo se factura tu póliza, la suma asegurada puede actualizarse todos los meses o quedar fija. Revisamos tu seguro actual, aunque sea de otra compañía, y te decimos por escrito qué cubre y qué le falta.</p>
+      <ul class="check">
+        <li>Suma asegurada contra el valor real de tu auto o tu casa.</li>
+        <li>Coberturas que tenés y las que te faltan.</li>
+        <li>Una respuesta honesta: si estás bien, te lo decimos.</li>
+      </ul>
+      <div class="gift"><small>Sin cargo</small><b>Informe InfoAuto con el valor de tu auto</b><p>Si no sabés cuánto vale tu auto, te enviamos el informe con el valor de tabla actualizado.</p></div>
+      <div class="ctas"><a class="btn primary" href="https://wa.me/5491136052538?text=Hola%2C%20quiero%20la%20revisi%C3%B3n%20de%20mi%20p%C3%B3liza%20sin%20cargo" target="_blank" rel="noopener">Pedir mi revisión</a></div>
+    </div>
+    <div class="panel" aria-label="Ejemplo del test de protección">
+      <span class="eyebrow">Test de protección · 2 minutos</span>
+      <h3 style="font-size:22px;margin-bottom:16px">¿Estás preparado si mañana tenés un siniestro?</h3>
+      <div class="quiz">
+        <div class="qrow"><span>Suma asegurada del auto</span><em class="warn">Ojo con esto</em></div>
+        <div class="qrow"><span>Granizo</span><em class="bad">Hueco</em></div>
+        <div class="qrow"><span>Qué hacer si chocás</span><em class="ok">Vas bien</em></div>
+        <div class="qrow"><span>Respaldo ante un accidente</span><em class="bad">Hueco</em></div>
       </div>
-    </section>
+      <p style="color:var(--muted);font-size:14.5px;margin:16px 0 0">Preguntas simples con ejemplos reales. Sin datos personales. Al final te mostramos tus huecos de protección.</p>
+      <div class="ctas" style="margin-top:16px"><a class="btn primary" href="https://claude.ai/artifact/CwsWnpYPxShuwSZPRr4coL" target="_blank" rel="noopener">Hacer el test</a></div>
+    </div>
+  </div>
+</section>
 
-    <!-- SERVICIOS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Cómo trabajamos</span>
+    <h2>Un proceso claro, de la consulta a la renovación</h2>
+    <div class="steps">
+      <div class="step"><h3>Análisis</h3><p>Escuchamos qué necesitás y revisamos lo que ya tenés.</p></div>
+      <div class="step"><h3>Propuesta</h3><p>Te explicamos la cobertura recomendada, por escrito y en simple.</p></div>
+      <div class="step"><h3>Contratación</h3><p>Te entregamos tu credencial anual, certificado Mercosur, detalle de coberturas e instructivo para la app.</p></div>
+      <div class="step"><h3>Acompañamiento</h3><p>Revisamos tus sumas cada año y te acompañamos en cada siniestro.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section class="intro">
-      <h2 data-aos="fade-up">Nuestros servicios</h2>
+<section class="docs" id="documentacion">
+  <div class="wrap">
+    <span class="eyebrow">Tu cobertura, siempre a mano</span>
+    <h2>Documentación que recibís</h2>
+    <p class="lead">Te acercamos la información necesaria para identificar tu seguro y usar sus servicios con claridad.</p>
+    <div class="grid">
+      <article class="card"><div class="ic">🪪</div><h3>Credencial anual</h3><p>Identificación de tu seguro para tener los datos de cobertura disponibles.</p></article>
+      <article class="card"><div class="ic">🌎</div><h3>Certificado Mercosur</h3><p>Documentación para acreditar la cobertura al circular por la región.</p></article>
+      <article class="card"><div class="ic">🛡️</div><h3>Detalle de coberturas</h3><p>La descripción de las protecciones contratadas y sus condiciones.</p></article>
+      <article class="card"><div class="ic">📱</div><h3>Instructivo de la app</h3><p>Una guía para acceder y utilizar la aplicación de tu seguro.</p></article>
+    </div>
+  </div>
+</section>
 
-      <div class="cards">
-        <div class="card" data-aos="fade-up">
-          <img
-            src="https://images.unsplash.com/photo-1454165205744-3b78555e5572"
-          />
-
-          <div class="icon"><i data-lucide="shield"></i></div>
-
-          <h3>Asesoramiento en seguros</h3>
-
-          <p>
-            Analizamos cada caso para encontrar la cobertura adecuada según las
-            necesidades del cliente.
-          </p>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="200">
-          <img
-            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf"
-          />
-
-          <div class="icon"><i data-lucide="briefcase"></i></div>
-
-          <h3>Gestión administrativa</h3>
-
-          <p>
-            Administración y seguimiento de pólizas para simplificar la gestión
-            aseguradora.
-          </p>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="400">
-          <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-          />
-
-          <div class="icon"><i data-lucide="users"></i></div>
-
-          <h3>Acompañamiento profesional</h3>
-
-          <p>
-            Soporte permanente para clientes y productores durante todo el
-            proceso.
-          </p>
-        </div>
+<section class="inst" id="instituciones">
+  <div class="wrap">
+    <span class="eyebrow">Gremios, cajas profesionales y asociaciones</span>
+    <h2>Beneficios en seguros para tus afiliados, sin costo para la institución</h2>
+    <p class="lead">Diseñamos programas de beneficios junto a Sancor Seguros: descuentos exclusivos, atención presencial y acompañamiento en siniestros para cada afiliado.</p>
+    <div class="case-study">
+      <div class="cs">
+        <span class="eyebrow">Caso · Asociación Judicial Bonaerense La Plata</span>
+        <h3 style="font-size:22px">Convenio exclusivo AJB La Plata – Sancor Seguros</h3>
+        <div class="nums"><div><b>30%</b><span>en auto</span></div><div><b>20%</b><span>en hogar</span></div><div><b>20%</b><span>en accidentes personales</span></div></div>
+        <ul>
+          <li>Ejecutivo dedicado con atención presencial en la sede del gremio.</li>
+          <li>Revisión de póliza sin cargo y test de protección para afiliados.</li>
+          <li>Kit de prevención y guía ante siniestros para las redes del gremio.</li>
+          <li>Reporte trimestral de beneficios entregados.</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="documentos">
-      <h2 data-aos="fade-up">Documentación que recibís</h2>
-
-      <p class="documentos-intro">
-        Con un equipo altamente capacitado nos comprometemos a brindarte una
-        experiencia de servicio excepcional.
-      </p>
-
-      <div class="documentos-grid">
-        <div class="doc-card" data-aos="zoom-in">
-          <i data-lucide="badge-check"></i>
-          <h3>Credencial anual</h3>
-          <p>Credencial anual del seguro para identificación y cobertura.</p>
+      <div class="cs" style="display:grid;align-content:space-between;gap:18px">
+        <div>
+          <h3 style="font-size:22px">¿Representás una institución?</h3>
+          <p style="color:var(--muted);margin:10px 0 0">Te presentamos el programa en una reunión. Sin costo, sin padrones y con toda la comunicación aprobada por la institución.</p>
         </div>
-
-        <div class="doc-card" data-aos="zoom-in" data-aos-delay="150">
-          <i data-lucide="file-text"></i>
-          <h3>Póliza Mercosur</h3>
-          <p>Documento oficial de cobertura para circulación regional.</p>
-        </div>
-
-        <div class="doc-card" data-aos="zoom-in" data-aos-delay="300">
-          <i data-lucide="shield"></i>
-          <h3>Descripción de cobertura</h3>
-          <p>Detalle completo de las protecciones contratadas.</p>
-        </div>
-
-        <div class="doc-card" data-aos="zoom-in" data-aos-delay="450">
-          <i data-lucide="smartphone"></i>
-          <h3>Instructivo APP</h3>
-          <p>Guía para utilizar la aplicación del seguro.</p>
-        </div>
+        <a class="btn primary" href="https://wa.me/5491136052538?text=Hola%2C%20represento%20a%20una%20instituci%C3%B3n%20y%20quiero%20conocer%20el%20programa%20de%20beneficios" target="_blank" rel="noopener">Quiero conocer el programa</a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- CONSULTORIA -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="ccard">
+      <span class="eyebrow" style="margin:0">Contacto</span>
+      <div class="row"><i>💬</i><div><b>WhatsApp</b><span>+54 9 11 3605-2538</span></div></div>
+      <div class="row"><i>✉️</i><div><b>Email</b><span><a href="mailto:Npatella@rysconsultora.com">Npatella@rysconsultora.com</a></span></div></div>
+      <div class="row"><i>✉️</i><div><b>Email</b><span><a href="mailto:Lpaolillo@rysconsultora.com">Lpaolillo@rysconsultora.com</a></span></div></div>
+      <div class="row"><i>📍</i><div><b>Oficina Oeste</b><span>Las Heras 350, dpto. 305, Ituzaingó, Buenos Aires (CP 1714)</span></div></div>
+      <div class="row"><i>📍</i><div><b>Oficina CABA</b><span>Viel 1838, Ciudad Autónoma de Buenos Aires</span></div></div>
+      <div class="row"><i>🔗</i><div><b>LinkedIn</b><span><a href="https://www.linkedin.com/in/nicolas-alejandro-patella-97b535156/" target="_blank" rel="noopener">Nicolás Patella</a></span></div></div>
+      <iframe src="https://www.google.com/maps?q=Las+Heras+350+1714&output=embed" title="Mapa de la oficina de Organización Patella en Ituzaingó" loading="lazy"></iframe>
+    </div>
+    <div class="final">
+      <h2>Hablá con una persona, hoy.</h2>
+      <p>Contanos qué necesitás y te respondemos dentro del mismo día hábil. Sin bots y sin compromiso.</p>
+      <div><a class="btn light" href="https://wa.me/5491136052538?text=Hola%2C%20quiero%20recibir%20asesoramiento%20sobre%20seguros" target="_blank" rel="noopener">Escribinos por WhatsApp</a></div>
+    </div>
+  </div>
+</section>
+</main>
 
-    <section class="highlight">
-      <div class="highlight-grid">
-        <div class="highlight-img" data-aos="fade-right">
-          <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
-          />
-        </div>
+<footer>
+  <div class="wrap">
+    <div class="ssn">
+      <span><b>Nicolás Patella</b> · Productor Asesor de Seguros · Matrícula SSN N° 98760</span>
+      <span>Organizador del Grupo Sancor Seguros · Miembros del Grupo RyS · En alianza con <a href="https://sinergiaconsultoria.com.ar" target="_blank" rel="noopener">Sinergia Consultoría</a></span>
+    </div>
+    <div>Superintendencia de Seguros de la Nación · Órgano de control de la actividad aseguradora y reaseguradora · 0800-666-8400 · www.argentina.gob.ar/ssn</div>
+    <div>Las coberturas, descuentos y servicios están sujetos a las condiciones de cada póliza y de la compañía aseguradora. © 2026 Organización Patella &amp; Asociados.</div>
+  </div>
+</footer>
 
-        <div class="highlight-text" data-aos="fade-left">
-          <h2>Consultoría estratégica en seguros</h2>
+<a class="fab" href="https://wa.me/5491136052538?text=Hola%2C%20quiero%20hablar%20con%20un%20asesor" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">💬 WhatsApp</a>
 
-          <p>
-            Ofrecemos asesoramiento especializado para evaluar riesgos,
-            seleccionar coberturas adecuadas y gestionar eficientemente las
-            pólizas de nuestros clientes.
-          </p>
-
-          <p>
-            Nuestro objetivo es simplificar la contratación de seguros y brindar
-            soluciones claras y confiables.
-          </p>
-
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="//wa.me/5491136052538?text=Hola,%20quiero%20recibir%20asesoramiento%20sobre%20seguros"
-            class="btn-secondary"
-          >
-            Hablar con un asesor
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMO TRABAJAMOS -->
-
-    <section class="process">
-      <h2 data-aos="fade-up">Cómo trabajamos</h2>
-
-      <div class="process-grid">
-        <div class="step" data-aos="fade-up">
-          <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
-          />
-
-          <h3>1. Análisis</h3>
-
-          <p>Estudiamos las necesidades del cliente.</p>
-        </div>
-
-        <div class="step" data-aos="fade-up" data-aos-delay="150">
-          <img
-            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85"
-          />
-
-          <h3>2. Evaluación</h3>
-
-          <p>Evaluamos riesgos y alternativas disponibles.</p>
-        </div>
-
-        <div class="step" data-aos="fade-up" data-aos-delay="300">
-          <img
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
-          />
-
-          <h3>3. Selección</h3>
-
-          <p>Elegimos la cobertura más conveniente.</p>
-        </div>
-
-        <div class="step" data-aos="fade-up" data-aos-delay="450">
-          <img
-            src="https://images.unsplash.com/photo-1450101215322-bf5cd27642fc"
-          />
-
-          <h3>4. Gestión</h3>
-
-          <p>Administramos y acompañamos la póliza.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENEFICIOS -->
-
-    <section class="benefits">
-      <div class="benefits-grid">
-        <div class="benefits-text" data-aos="fade-right">
-          <h2>Por qué elegirnos</h2>
-
-          <ul>
-            <li>
-              <i data-lucide="check-circle"></i> Asesoramiento profesional
-            </li>
-
-            <li><i data-lucide="check-circle"></i> Análisis personalizado</li>
-
-            <li><i data-lucide="check-circle"></i> Gestión administrativa</li>
-
-            <li>
-              <i data-lucide="check-circle"></i> Acompañamiento permanente
-            </li>
-
-            <li><i data-lucide="check-circle"></i> Apoyo a productores</li>
-          </ul>
-        </div>
-
-        <div class="benefits-img" data-aos="fade-left">
-          <img
-            src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="promo-hogar">
-      <div class="promo-grid">
-        <div class="promo-img">
-          <img
-            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa"
-          />
-        </div>
-
-        <div class="promo-text">
-          <h2>Seguro de hogar</h2>
-
-          <p class="promo-destacado">
-            Consultá por descuentos en tu seguro de hogar
-          </p>
-
-          <p>
-            Protegé tu vivienda, tus bienes y tu tranquilidad con coberturas
-            adaptadas a tus necesidades.
-          </p>
-
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="//wa.me/5491136052538?text=Hola,%20quiero%20recibir%20asesoramiento%20sobre%20seguros"
-            class="btn-primary"
-          >
-            Consultar descuentos
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-
-    <section class="contacto">
-      <h2 data-aos="fade-up">Contacto</h2>
-
-      <div class="contact-grid">
-        <div class="contact-info" data-aos="fade-right">
-          <div class="contact-item">
-            <i data-lucide="map-pin"></i>
-            <p>Las Heras 350 dpto 305<br />CP 1714</p>
-          </div>
-
-          <div class="contact-item">
-            <i data-lucide="mail"></i>
-            <a href="mailto:Npatella@rysconsultoria.com"
-              >Npatella@rysconsultora.com</a
-            >
-          </div>
-
-          <div class="contact-item">
-            <i data-lucide="mail"></i>
-            <a href="mailto:Lpaolillo@rysconsultora.com"
-              >Lpaolillo@rysconsultora.com</a
-            >
-          </div>
-
-          <!--<div class="contact-item">
-            <i data-lucide="instagram"></i>
-            <a href="#">Instagram</a>
-          </div>-->
-
-          <div class="contact-item">
-            <i data-lucide="linkedin"></i>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/nicolas-alejandro-patella-97b535156/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="contact-item">
-            <i data-lucide="phone"></i>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://wa.me/5491136052538?text=Hola,%20quiero%20recibir%20asesoramiento%20sobre%20seguros"
-              >WhatsApp</a
-            >
-          </div>
-        </div>
-
-        <div class="mapa" data-aos="fade-left">
-          <iframe
-            src="https://www.google.com/maps?q=Las+Heras+350+1714&output=embed"
-            width="100%"
-            height="350"
-            style="border: 0"
-            loading="lazy"
-          >
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2026 Organización Patella & Asoc</p>
-    </footer>
-
-    <!-- WHATSAPP FLOAT -->
-
-    <a
-      rel="noopener noreferrer"
-      target="_blank"
-      href="https://wa.me/5491136052538?text=Hola,%20quiero%20recibir%20asesoramiento%20sobre%20seguros"
-      class="whatsapp"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-      />
-    </a>
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      lucide.createIcons();
-    </script>
-  </body>
+</body>
 </html>
